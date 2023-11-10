@@ -1,0 +1,31 @@
+{
+  "name": "aeve_rec",
+  "version": "1.1.6",
+  "description": "Application de gestion des vidéos pour les salles de jeux aeve",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . aeve-rec --platform linux --arch x64 --out dist/",
+    "deb64": "electron-installer-debian --src dist/aeve-rec-linux-x64/ --arch amd64 --config config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bosseur31/AEVE-REC-APP.git"
+  },
+  "author": "Maisonneuve Aymeric",
+  "devDependencies": {
+    "electron": "^12.0.5",
+    "electron-installer-debian": "^3.1.0",
+    "electron-packager": "^15.2.0",
+    "request": "^2.88.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Bosseur31/AEVE-REC-APP/issues"
+  },
+  "homepage": "https://github.com/Bosseur31/AEVE-REC-APP#readme",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^5.0.0"
+  },
+  "license": "ISC"
+}
