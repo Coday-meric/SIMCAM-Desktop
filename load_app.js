@@ -11,9 +11,9 @@ addEventListener('load', () => {
 
         protocol: 'http:',
 
-        hostname: 'rec-api.aymeric-mai.fr',
+        hostname: 'sc-api.coday.fr',
 
-        port: 8000,
+        port: 80,
 
         path: '/status_rec',
 

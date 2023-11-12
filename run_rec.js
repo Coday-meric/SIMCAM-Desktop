@@ -28,9 +28,9 @@ function upload_vid() {
 
         protocol: 'http:',
 
-        hostname: 'rec-api.aymeric-mai.fr',
+        hostname: 'sc-api.coday.fr',
 
-        port: 8000,
+        port: 80,
 
         path: '/upload_file',
 
@@ -84,9 +84,9 @@ function post_api() {
 
         protocol: 'http:',
 
-        hostname: 'rec-api.aymeric-mai.fr',
+        hostname: 'sc-api.coday.fr',
 
-        port: 8000,
+        port: 80,
 
         path: '/run_rec',
 
