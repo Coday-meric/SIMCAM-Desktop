@@ -17,7 +17,7 @@ get.addEventListener('click', () => {
 
         port: 80,
 
-        path: '/unrec',
+        path: '/unpreview',
 
         redirect: 'follow'
     });
@@ -68,7 +68,7 @@ get.addEventListener('click', () => {
     request.end();
 
     ipcRenderer.send('show-load')
-    ipcRenderer.send('hide-stop')
+    ipcRenderer.send('hide-preview')
 
 });
 

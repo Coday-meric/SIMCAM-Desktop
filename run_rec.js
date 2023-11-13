@@ -32,7 +32,7 @@ function upload_vid() {
 
         port: 80,
 
-        path: '/upload_file',
+        path: '/upload',
 
         redirect: 'follow'
     });
@@ -88,7 +88,7 @@ function post_api() {
 
         port: 80,
 
-        path: '/run_rec',
+        path: '/run',
 
         redirect: 'follow'
 
@@ -143,4 +143,69 @@ function post_api() {
     ipcRenderer.send('show-load')
     ipcRenderer.send('hide-main')
 
+}
+
+function preview() {
+    const request = net.request({
+
+        method: 'GET',
+
+        protocol: 'http:',
+
+        hostname: 'sc-api.coday.fr',
+
+        port: 80,
+
+        path: '/preview',
+
+        redirect: 'follow'
+    });
+
+    request.on('response', (response) => {
+
+        console.log(`STATUS: ${response.statusCode}`);
+
+        console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
+
+        let data_temp = '';
+
+        response.on('end', () => {
+            console.log(data_temp);
+        });
+        response.on("data", chunk => {
+            data_temp += chunk;
+        });
+
+    });
+
+    request.on('finish', () => {
+
+        console.log('Request is Finished')
+
+    });
+
+    request.on('abort', () => {
+
+        console.log('Request is Aborted')
+
+    });
+
+    request.on('error', (error) => {
+
+        console.log(`ERROR: ${JSON.stringify(error)}`)
+
+    });
+
+    request.on('close', (error) => {
+
+        console.log('Last Transaction has occured')
+
+    });
+
+    request.setHeader('Content-Type', 'application/json');
+
+    request.end();
+
+    ipcRenderer.send('show-preview');
+    ipcRenderer.send('hide-main');
 }

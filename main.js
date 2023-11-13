@@ -96,7 +96,7 @@ function createWindow () {
 
   const mainWindow = new BrowserWindow({
     width: 320,
-    height: 530,
+    height: 600,
     frame: true,
     show: false,
     resizable: false,
@@ -148,6 +148,24 @@ function createWindow () {
   stopWindow.loadFile('stop_rec.html')
   stopWindow.removeMenu()
 
+  const previewWindow = new BrowserWindow({
+    width: 320,
+    height: 510,
+    frame: true,
+    show: false,
+    resizable: false,
+
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+      preload: path.join(__dirname, 'preload.js')
+    }
+  })
+
+  previewWindow.loadFile('preview.html')
+  previewWindow.removeMenu()
+
   ipcMain.on('show-main', function (){
     mainWindow.show()
     mainWindow.reload()
@@ -156,6 +174,11 @@ function createWindow () {
   ipcMain.on('show-stop', function (){
     stopWindow.show()
     stopWindow.reload()
+  })
+
+  ipcMain.on('show-preview', function (){
+    previewWindow.show()
+    previewWindow.reload()
   })
 
   ipcMain.on('show-load', function (){
@@ -174,6 +197,10 @@ function createWindow () {
 
   ipcMain.on('hide-stop', function (){
     stopWindow.hide()
+  })
+
+  ipcMain.on('hide-preview', function (){
+    previewWindow.hide()
   })
 
   ipcMain.on('hide-main', function (){

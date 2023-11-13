@@ -1,4 +1,4 @@
-var electronInstaller = require('electron-winstaller');
+const electronInstaller = require('electron-winstaller');
 
 // In this case, we can use relative paths
 var settings = {
@@ -11,15 +11,18 @@ var settings = {
     // The name of the executable of your built
     exe: 'simcam.exe',
 
+    description: 'Application d\'utilisation de la Simcam.',
+
     loadingGif: './ajax-loader.gif',
 
-    icon: './icon.ico',
+    icon: './dist/simcam-win32-x64/resources/app/icon.ico',
 
-    setupIcon: './icon.ico',
+    setupIcon: './dist/simcam-win32-x64/resources/app/icon.ico',
 
     setupExe: 'simcam-setup.exe',
 
-    setupMsi: 'simcam-setup.msi'
+    setupMsi: 'simcam-setup.msi',
+
 
 };
 

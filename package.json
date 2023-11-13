@@ -1,11 +1,12 @@
 {
   "name": "simcam",
-  "version": "2.0",
-  "description": "Application de gestion des vidéos pour les salles de jeux",
+  "version": "2.1.1",
+  "description": "Application d'utilisation de la Simcam.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . simcam --platform linux --arch x64 --out dist/",
+    "build-linux": "electron-packager . simcam --platform linux --arch x64 --out dist/",
+    "build-win": "electron-packager . simcam --platform win32 --arch x64 --out dist/ --icon=./icon.ico",
     "deb64": "electron-installer-debian --src dist/simcam-linux-x64/ --arch amd64 --config config.json"
   },
   "repository": {
@@ -16,7 +17,7 @@
   "devDependencies": {
     "electron": "^12.0.5",
     "electron-installer-debian": "^3.1.0",
-    "electron-packager": "^15.2.0",
+    "electron-packager": "^15.5.2",
     "request": "^2.88.2"
   },
   "bugs": {

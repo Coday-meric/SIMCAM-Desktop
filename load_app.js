@@ -15,7 +15,7 @@ addEventListener('load', () => {
 
         port: 80,
 
-        path: '/status_rec',
+        path: '/status',
 
         redirect: 'follow'
     });
