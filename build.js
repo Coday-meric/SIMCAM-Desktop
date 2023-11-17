@@ -22,8 +22,6 @@ var settings = {
     setupExe: 'simcam-setup.exe',
 
     setupMsi: 'simcam-setup.msi',
-
-
 };
 
 resultPromise = electronInstaller.createWindowsInstaller(settings);

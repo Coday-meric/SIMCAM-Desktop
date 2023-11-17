@@ -32,7 +32,7 @@ addEventListener('load', () => {
             console.log(data_temp);
             let data = JSON.parse(data_temp);
 
-            if (data.status === 'true') {
+            if (data.status === true) {
                 console.log('Direction extinction vidéo')
                 setTimeout(
                     function()

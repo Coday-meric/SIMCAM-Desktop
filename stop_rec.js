@@ -138,7 +138,4 @@ addEventListener('load', () => {
     request.setHeader('Content-Type', 'application/json');
 
     request.end();
-
-
-
 });

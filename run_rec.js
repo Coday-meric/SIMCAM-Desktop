@@ -88,7 +88,7 @@ function post_api() {
 
         port: 80,
 
-        path: '/run',
+        path: '/rec',
 
         redirect: 'follow'
 

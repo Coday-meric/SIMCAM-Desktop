@@ -2,6 +2,7 @@
   "name": "simcam",
   "version": "2.1.1",
   "description": "Application d'utilisation de la Simcam.",
+  "icon": "icon.ico",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
