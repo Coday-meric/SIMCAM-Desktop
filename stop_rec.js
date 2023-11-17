@@ -1,6 +1,5 @@
-const electron = require('electron');
 const { ipcRenderer } = require('electron')
-const net = electron.remote.net;
+const { net } = require('@electron/remote')
 
 
 var get = document.getElementById('button');

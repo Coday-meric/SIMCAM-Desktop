@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <style>
-        #loader{
+        #loader {
             background: url('ajax-loader.gif') 50% 50% no-repeat rgba(255, 255, 255, 0.8);
             background-color: #000000;
             background-size: 15%;
@@ -15,18 +15,19 @@
             width: 100%;
             z-index: 9999;
         }
-        #reload_button{
+
+        #reload_button {
             position: absolute;
             bottom: 18%;
             left: 40%;
         }
 
-        #etat{
+        #etat {
             background: none;
             border: none;
             color: #00b6ff;
             font-size: 22px;
-            font-family: "Open Sans",sans-serif;
+            font-family: "Open Sans", sans-serif;
             font-variant: small-caps;
             font-weight: 700;
             height: 700px;
@@ -42,18 +43,14 @@
 <body>
 <div class="container-fluid">
     <div id="loader">
-        <div id="reload_button">
-
-        </div>
-        <div id="etat">
-
-        </div>
-
-
+        <div id="reload_button"></div>
+        <div id="etat"></div>
     </div>
-    <script>
-        jQuery(window).load(function(){ jQuery(".loader").fadeOut("200"); });
-    </script>
+    <!--    <script>
+            jQuery(window).load(function () {
+               jQuery(".loader").fadeOut("200");
+           });
+       </script>-->
 </div>
 </body>
 <script src="load_app.js"></script>

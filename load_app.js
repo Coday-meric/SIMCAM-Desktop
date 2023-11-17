@@ -1,8 +1,5 @@
-const electron = require('electron');
-const { ipcRenderer } = require('electron')
-const net = electron.remote.net;
-
-
+const {ipcRenderer, electron} = require('electron')
+const { net } = require('@electron/remote')
 addEventListener('load', () => {
 
     const request = net.request({
@@ -35,17 +32,15 @@ addEventListener('load', () => {
             if (data.status === true) {
                 console.log('Direction extinction vidéo')
                 setTimeout(
-                    function()
-                    {
+                    function () {
                         ipcRenderer.send('show-stop')
                         ipcRenderer.send('hide-load')
                     }, 1000);
 
-            }else{
+            } else {
                 console.log('Direction démarrage de vidéo')
                 setTimeout(
-                    function()
-                    {
+                    function () {
                         ipcRenderer.send('show-main')
                         ipcRenderer.send('hide-load')
                     }, 1000);
@@ -73,15 +68,15 @@ addEventListener('load', () => {
     request.on('error', (error) => {
 
         document.getElementById('etat').style.color = 'red'
-        document.getElementById('loader').style.background= "url('ghost.png') 50% 50% no-repeat rgba(255, 255, 255, 0.8)";
-        document.getElementById('loader').style.backgroundColor= "#000000";
+        document.getElementById('loader').style.background = "url('ghost.png') 50% 50% no-repeat rgba(255, 255, 255, 0.8)";
+        document.getElementById('loader').style.backgroundColor = "#000000";
         document.getElementById('etat').innerHTML = "Internet ou service indisponible !"
         var reload = document.getElementById("reload_button");
         var input = document.createElement("input");
-        input.setAttribute("name","reload_button");
-        input.setAttribute("id","reload_button");
-        input.setAttribute("value","Recharger");
-        input.setAttribute("type","button");
+        input.setAttribute("name", "reload_button");
+        input.setAttribute("id", "reload_button");
+        input.setAttribute("value", "Recharger");
+        input.setAttribute("type", "button");
         input.setAttribute("onclick", "document.location.reload(false)")
         reload.appendChild(input);
 
@@ -100,9 +95,6 @@ addEventListener('load', () => {
     request.setHeader('Content-Type', 'application/json');
 
     request.end();
-
-
-
 });
 
 

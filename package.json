@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron .",
     "build-linux": "electron-packager . simcam --platform linux --arch x64 --out dist/",
-    "build-win": "electron-packager . simcam --platform win32 --arch x64 --out dist/ --icon=./icon.ico",
+    "build-win": "electron-packager . simcam --overwrite --platform win32 --arch x64 --asar --prune=true --out=release-builds --icon=./icon.ico",
     "deb64": "electron-installer-debian --src dist/simcam-linux-x64/ --arch amd64 --config config.json"
   },
   "repository": {
@@ -19,6 +19,7 @@
     "electron": "^27.1.0",
     "electron-installer-debian": "^3.2.0",
     "electron-packager": "^17.1.2",
+    "electron-winstaller": "^5.2.1",
     "request": "^2.88.2"
   },
   "bugs": {
@@ -26,8 +27,8 @@
   },
   "homepage": "https://github.com/Coday-meric/SIMCAM-Desktop#readme",
   "dependencies": {
+    "@electron/remote": "^2.1.0",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-winstaller": "^5.2.1",
     "npm-check-updates": "^16.14.6"
   },
   "license": "ISC"

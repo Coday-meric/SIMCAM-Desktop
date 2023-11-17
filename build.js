@@ -3,9 +3,9 @@ const electronInstaller = require('electron-winstaller');
 // In this case, we can use relative paths
 var settings = {
     // Specify the folder where the built app is located
-    appDirectory: './dist/simcam-win32-x64',
+    appDirectory: './release-builds/simcam-win32-x64',
     // Specify the existing folder where
-    outputDirectory: './dist/installers',
+    outputDirectory: './release-builds/installers',
     // The name of the Author of the app (the name of your company)
     authors: 'Aymeric Maisonneuve',
     // The name of the executable of your built
@@ -15,9 +15,9 @@ var settings = {
 
     loadingGif: './ajax-loader.gif',
 
-    icon: './dist/simcam-win32-x64/resources/app/icon.ico',
+    icon: './icon.ico',
 
-    setupIcon: './dist/simcam-win32-x64/resources/app/icon.ico',
+    setupIcon: './icon.ico',
 
     setupExe: 'simcam-setup.exe',
 

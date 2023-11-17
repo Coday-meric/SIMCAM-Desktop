@@ -1,10 +1,7 @@
 // Modules to control application life and create native browser window
-const { app } = require('electron')
+const { app, ipcMain, dialog, BrowserWindow, Notification } = require('electron')
 const path = require('path')
-const { ipcMain } = require('electron')
-const { dialog } = require('electron')
-const { BrowserWindow } = require('electron')
-const { Notification } = require('electron')
+require('@electron/remote/main').initialize()
 
 if (handleSquirrelEvent(app)) {
   // squirrel event handled and app will exit in 1000ms, so don't do anything else
@@ -81,8 +78,8 @@ function createWindow () {
     width: 400,
     height: 400,
     frame: false,
-    resizable: false,
-    icon: path.join(__dirname, 'icon.ico'),
+    resizable: true,
+    //icon: path.join(__dirname, 'icon.ico'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -90,7 +87,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
+  require('@electron/remote/main').enable(loadWindow.webContents)
   // and load the index.html of the app.
   loadWindow.loadFile('load_app.html')
   loadWindow.removeMenu()
@@ -109,7 +106,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
+  require('@electron/remote/main').enable(mainWindow.webContents)
   mainWindow.loadFile('run_rec.html')
   mainWindow.removeMenu()
 
@@ -127,7 +124,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
+  require('@electron/remote/main').enable(nextcloudWindow.webContents)
   nextcloudWindow.loadURL('http://cloud.aymeric-mai.fr')
   nextcloudWindow.removeMenu()
 
@@ -145,7 +142,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
+  require('@electron/remote/main').enable(stopWindow.webContents)
   stopWindow.loadFile('stop_rec.html')
   stopWindow.removeMenu()
 
@@ -163,7 +160,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
+  require('@electron/remote/main').enable(previewWindow.webContents)
   previewWindow.loadFile('preview.html')
   previewWindow.removeMenu()
 
